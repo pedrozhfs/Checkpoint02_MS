@@ -1,0 +1,49 @@
+<!-- include header -->
+<%- include('include/_header') %>
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex-justify-between">
+                <div class="filter">
+                    <a href="/"><i class="fas fa-angle-double-left"></i> Todos os produtos</a>
+            </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Atualizar Produto</h2>
+            <span class="text-light">Atualize os dados do produto</span>
+        </div>
+
+
+        <form action="/api/products/<%= product._id %>" method="POST" id="update_product">
+            <div class="new_product">
+                <div class="form-group">
+                    <label for="nomeProduto" class="text-light">Nome Produto</label>
+                    <input type="hidden" name="id" value="<%= product._id %>">
+                    <input type="text" name="nomeProduto" value="<%= product.nomeProduto %>" placeholder="Nome do produto">
+                </div>
+                <div class="form-group">
+                    <label for="tipoProduto" class="text-light">Tipo</label>
+                    <input type="text" name="tipoProduto" value="<%= product.tipoProduto %>" placeholder="Tipo do produto">
+                </div>
+                <div class="form-group">
+                    <label for="categoriaProduto" class="text-light">Categoria</label>
+                    <input type="text" name="categoriaProduto" value="<%= product.categoriaProduto %>" placeholder="Categoria do produto">
+                </div>
+                <div class="form-group">
+                    <label for="precoProduto" class="text-light">Preço</label>
+                    <input type="number" name="precoProduto" value="<%= product.precoProduto %>" placeholder="Preço do produto">
+                </div>
+        
+                <div class="form-group">
+                    <button type="submit" class="btn text-dark update">Atualizar</button>
+                </div>
+            </div>
+            
+        </form>
+        
+    </div>
+</main>
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
